@@ -2,7 +2,6 @@
  * Created by mymy on 2018/4/6.
  */
 
-$(function(){
 // 禁用小环环
   NProgress.configure({ showSpinner: false });
 
@@ -21,6 +20,12 @@ $(function(){
     }, 500);
   });
 
+//拦截功能，判断是否登录
+$.ajax({
+
+})
+
+$(function(){
 
 $(".category").click(function(){
   $(this).next().stop().slideToggle();
