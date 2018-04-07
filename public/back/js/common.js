@@ -22,8 +22,25 @@
 
 //拦截功能，判断是否登录
 $.ajax({
+  type:'get',
+  url:'/employee/checkRootLogin',
+  success:function( info ){
+    console.log( info );
+    if(info.success){
+    //  登录成功的状态
+
+    }
+    //进行拦截,到登陆页面
+    if(info.error===400){
+      location.href="login.html";
+
+    }
+  }
 
 })
+
+
+
 
 $(function(){
 
@@ -41,5 +58,32 @@ $(".icon_menu").click(function(){
   $('.main_top').toggleClass("hidemenu");
   $('.main_content').toggleClass("hidemenu");
 });
+
+
+  $(".icon_back").click(function(){
+    //console.log(11);
+  //  模态框显示
+    $(".modal").modal('show');
+  })
+
+
+  //给退出添加一个点击事件，模态框隐藏，
+  $("#loginOut").click(function(){
+    //console.log("hh");
+    $(".modal").modal('hide');
+  //  请求ajax,判断管理员是否登录
+    $.ajax({
+      type:"get",
+      url:"/employee/checkRootLogin",
+      dataType:"json",
+      success:function(info){
+        console.log(info);
+        if(info.success){
+        //  登录成功，跳转到login页面
+          location.href="login.html";
+        }
+      }
+    })
+  })
 
 })

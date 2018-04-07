@@ -24,6 +24,10 @@ a:link, a:visited, a:hover, a:active {
   margin-bottom: 20px;
 }
 
+.modalRed{
+  color:#d43f3a;
+}
+
 .form-group .bgc{
   background-color: #337ab7;
 
