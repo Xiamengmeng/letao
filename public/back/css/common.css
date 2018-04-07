@@ -20,6 +20,10 @@ a:link, a:visited, a:hover, a:active {
   margin-top: 150px;
 }
 
+.btm_20{
+  margin-bottom: 20px;
+}
+
 .form-group .bgc{
   background-color: #337ab7;
 
