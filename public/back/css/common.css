@@ -176,3 +176,11 @@ html,body{
   height: 400px;
   float: left;
 }
+
+/*表格样式文字垂直，水平居中效果*/
+
+.table.table-bordered th,
+.table.table-bordered td{
+  vertical-align: middle;
+  text-align: center;
+}

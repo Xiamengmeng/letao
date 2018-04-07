@@ -63,14 +63,14 @@ $(".icon_menu").click(function(){
   $(".icon_back").click(function(){
     //console.log(11);
   //  模态框显示
-    $(".modal").modal('show');
+    $("#commonModal").modal('show');
   })
 
 
   //给退出添加一个点击事件，模态框隐藏，
   $("#loginOut").click(function(){
     //console.log("hh");
-    $(".modal").modal('hide');
+    $("#commonModal").modal('hide');
   //  请求ajax,判断管理员是否登录
     $.ajax({
       type:"get",
