@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*lv ha*/
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
 .body_bg{
   width: 100%;
   height: 100%;
@@ -10,5 +22,137 @@
 
 .form-group .bgc{
   background-color: #337ab7;
+
+}
+
+html,body{
+  width: 100%;
+  height:100%;
+}
+.side{
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  position: fixed;
+  z-index: 999;
+  top:0;
+  left:0;
+  transition: all 1s;
+
+}
+
+.side.hidemenu{
+
+  left: -180px;;
+
+}
+
+.brand{
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #367FA9;
+}
+.brand a{
+  color: #fff;
+  font-size: 22px;
+}
+
+.side_user{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.side_user img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+}
+.side_user p{
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.side_nav a{
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #ccc;
+  padding-left: 30px;
+  border-left: 3px solid transparent;
+
+}
+
+.side_nav i{
+  margin-right: 5px;
+}
+
+.side_nav .child{
+  display: none;
+  transition: all 1s;
+}
+.side_nav .child a{
+  padding-left: 50px;
+}
+
+.side_nav a.current {
+  color: #fff;
+  border-left: 3px solid #006699;
+  background-color: #1d1f21;
+}
+
+
+
+
+/*main*/
+
+.main{
+  /*padding-left: 180px;*/
+  padding-top:50px;
+  transition: all 1s;
+
+}
+
+.main_top{
+  position: fixed;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 50px;
+  background-color: #3c8dbc;
+  padding-left: 180px;
+  z-index:666;
+  transition: all 1s;
+}
+
+.main_top.hidemenu{
+  padding-left:0;
+
+}
+.main_top a{
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.main_content{
+  width: 100%;
+  height: 1000px;
+  background-color: pink;
+  padding-top: 20px;
+
+  padding-left: 180px;
+  transition: all 1s;
+}
+.main_content.hidemenu{
+  padding-left:0;
 
 }
