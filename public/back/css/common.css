@@ -160,9 +160,11 @@ html,body{
 .echarts_1{
   width: 520px;
   height: 400px;
+  float: left;
 }
 
-.echarts_1{
+.echarts_2{
   width: 520px;
   height: 400px;
+  float: left;
 }
