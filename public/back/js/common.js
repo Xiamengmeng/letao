@@ -1,8 +1,9 @@
 /**
  * Created by mymy on 2018/4/6.
  */
+$(function(){
 
-// 禁用小环环
+  // 禁用小环环
   NProgress.configure({ showSpinner: false });
 
 // ajax 开始
@@ -21,28 +22,23 @@
   });
 
 //拦截功能，判断是否登录
-$.ajax({
-  type:'get',
-  url:'/employee/checkRootLogin',
-  success:function( info ){
-    console.log( info );
-    if(info.success){
-    //  登录成功的状态
+  $.ajax({
+    type:'get',
+    url:'/employee/checkRootLogin',
+    success:function( info ){
+      console.log( info );
+      if(info.success){
+        //  登录成功的状态
 
+      }
+      //进行拦截,到登陆页面
+      if(info.error===400){
+        location.href="login.html";
+
+      }
     }
-    //进行拦截,到登陆页面
-    if(info.error===400){
-      location.href="login.html";
 
-    }
-  }
-
-})
-
-
-
-
-$(function(){
+  })
 
 $(".category").click(function(){
   $(this).next().stop().slideToggle();
@@ -61,11 +57,10 @@ $(".icon_menu").click(function(){
 
 
   $(".icon_back").click(function(){
-    //console.log(11);
+    console.log(11);
   //  模态框显示
     $("#commonModal").modal('show');
   })
-
 
   //给退出添加一个点击事件，模态框隐藏，
   $("#loginOut").click(function(){
