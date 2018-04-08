@@ -107,21 +107,31 @@
       <form id="form">
         <div class="dropdown btm_20">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            二级分类
+            <span id="dropdownMenu2">请选择一级分类</span>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#">Action</a></li>
+            <!--<li><a tabindex="-1" href="#">Action</a></li>-->
+            <!--挖个坑-->
           </ul>
         </div>
+        <!--添加两个隐藏域，定义name-->
+        <input type="hidden" name="categoryId">
+        <!-- 火热的品牌 -->
+        <input type="hidden" name="hot" value="1">
+
         <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入二级分类" name="categoryName">
+          <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
         </div>
         <div class="form-group">
-          <button class="btn btn-default">上传图片</button>
+          <!--让button按钮变成假按钮和file相关联实现点击上传图片功能-->
+          <label class="btn btn-default" name="button" for="fileupload">上传图片</label>
+          <input type="file" name="pic1" class="hidden" id="fileupload" data-url="/product/addProductPic">
         </div>
         <div class="form-group">
-          <img src="images/none.png" alt="" style="width: 100px;">
+          <img src="images/none.png" alt="" style="width: 100px;" class="img_box">
+          <!-- 图片地址 -->
+          <input type="hidden" name="brandLogo">
         </div>
         <div class="modal-footer">
           <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -138,6 +148,8 @@
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="js/common.js"></script>
 <script src="js/second.js"></script>
 
