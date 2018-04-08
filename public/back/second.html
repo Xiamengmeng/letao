@@ -51,13 +51,16 @@
         <table class="table table-bordered table-hover">
           <thead>
           <tr class="active">
-            <th>序号</th>
-            <th>一级分类</th>
+            <th width="10%">序号</th>
+            <th width="30%">一级分类名称</th>
+            <th width="30%">二级分类名称</th>
+            <th width="30%">二级分类LOGO</th>
           </tr>
 
           </thead>
           <tbody>
           <!--挖个坑-->
+
           </tbody>
         </table>
 
@@ -92,10 +95,70 @@
     </div>
   </div>
 </div>
+
+<!--二级菜单分类模态框-->
+<div class="modal fade" id="secondModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <form id="form">
+        <div class="dropdown btm_20">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            二级分类
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" href="#">Action</a></li>
+          </ul>
+        </div>
+        <div class="form-group btm_20">
+          <input type="text" class="form-control" placeholder="请输入二级分类" name="categoryName">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default">上传图片</button>
+        </div>
+        <div class="form-group">
+          <img src="images/none.png" alt="" style="width: 100px;">
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary" id="addbtn">添加</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="js/common.js"></script>
+<script src="js/second.js"></script>
+
+
+<!--渲染表格模板引擎-->
+<script type="text/html" id="secondTpl">
+{{each rows v i}}
+<tr>
+  <td>{{(page-1)*size+(i+1)}}</td>
+  <td>{{v.categoryName}}</td>
+  <td>{{v.brandName}}</td>
+  <td><img src="{{v.brandLogo}}" alt="" style="width:40px"></td>
+</tr>
+  {{/each}}
+</script>
+
+<!--渲染模态框中一级分类菜单-->
+<script type="text/html" id="mcTpl">
+  {{each rows v i}}
+  <li><a tabindex="-1" data-id="{{v.id}}" href="#">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
 </body>
 </html>

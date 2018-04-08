@@ -26,7 +26,7 @@ $(function(){
     type:'get',
     url:'/employee/checkRootLogin',
     success:function( info ){
-      console.log( info );
+      //console.log( info );
       if(info.success){
         //  登录成功的状态
 
@@ -57,7 +57,7 @@ $(".icon_menu").click(function(){
 
 
   $(".icon_back").click(function(){
-    console.log(11);
+    //console.log(11);
   //  模态框显示
     $("#commonModal").modal('show');
   })
@@ -72,7 +72,7 @@ $(".icon_menu").click(function(){
       url:"/employee/checkRootLogin",
       dataType:"json",
       success:function(info){
-        console.log(info);
+        //console.log(info);
         if(info.success){
         //  登录成功，跳转到login页面
           location.href="login.html";
