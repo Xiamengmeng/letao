@@ -111,7 +111,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title">添加分类</h4>
+        <h4 class="modal-title">添加商品</h4>
       </div>
       <form id="form">
         <div class="dropdown btm_20">
@@ -123,33 +123,52 @@
             <!--<li><a tabindex="-1" href="#">Action</a></li>-->
             <!--挖个坑-->
           </ul>
+          <!-- 二级分类id: 归属的品牌 -->
+          <input type="hidden" name="brandId">
+          <!-- 商品上架下架  默认上架 值为 1 -->
+          <input type="hidden" name="statu" value="1">
+        </div>
+        <!--商品名称-->
+        <div class="form-group btm_20">
+          <input type="text" class="form-control" placeholder="请输入商品的名称" name="proName">
         </div>
 
+        <!--商品描述-->
         <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入商品的名称" name="brandName">
+          <textarea value="1" class="form-control" name="proDesc" placeholder="请输入商品的描述"></textarea>
         </div>
+
+        <!--商品库存-->
         <div class="form-group btm_20">
-          <textarea value=""></textarea>
+          <input type="text" class="form-control" placeholder="请输入商品的库存" name="num">
         </div>
+        <!--商品尺码-->
         <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入商品的库存" name="brandName">
+          <input type="text" class="form-control" placeholder="请输入商品的尺码（32-46）" name="size">
         </div>
+        <!--商品原价-->
         <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入商品的尺码（32-46）" name="brandName">
+          <input type="text" class="form-control" placeholder="请输入商品的原价" name="oldPrice">
         </div>
+        <!--商品现价-->
         <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入商品的原价" name="brandName">
+          <input type="text" class="form-control" placeholder="请输入商品的价格" name="price">
         </div>
-        <div class="form-group btm_20">
-          <input type="text" class="form-control" placeholder="请输入商品的价格" name="brandName">
-        </div>
+
 
         <div class="form-group">
-
           <!--让button按钮变成假按钮和file相关联实现点击上传图片功能-->
           <label class="btn btn-default" name="button" for="fileupload">上传图片</label>
-          <input type="file" name="pic1" class="hidden" id="fileupload" data-url="/product/addProductPic">
+          <input type="file" name="pic1" class="hidden" id="fileupload" data-url="/product/addProductPic" multiple>
         </div>
+
+
+        <div class="form-group" id="imgBox">
+          <input type="hidden" name="picStatus">
+        </div>
+
+
+
         <div class="modal-footer">
           <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary" id="add">添加</button>
@@ -168,6 +187,8 @@
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="js/common.js"></script>
 <script src="js/product.js"></script>
 
@@ -183,6 +204,14 @@
     <td>{{v.statu==1?"已上架":"下架"}}</td>
     <td><button class="btn btn-danger">下架</button></td>
   </tr>
+  {{/each}}
+
+</script>
+
+
+<script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a tabindex="-1" href="#">{{v.brandName}}</a></li>
   {{/each}}
 
 </script>
