@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/category.css">
+  <title>移动端</title>
+</head>
+<body>
+<div class="lt_container">
+  <!--头部-->
+  <div class="lt_content_head">
+    <a href="#" class="head_left"><i class="fa fa-home"></i></a>
+    <a href="#" class="head_right"><i class="fa fa-search"></i></a>
+    <h3>乐淘云购</h3>
+  </div>
+  <!--内容部分-->
+  <div class="lt_content_main">
+    <div class="main_left">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <ul id="ul_left" class="mui-clearfix">
+            <!--刨个坑-->
+          </ul>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="main_right">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <ul id="ul_right" class="mui-clearfix">
+
+            <!--刨个坑-->
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!--底部-->
+  <div class="lt_content_footer">
+    <ul class="mui-clearfix">
+      <li><a href="index.html"><i class="fa fa-home"></i><p>首页</p></a></li>
+      <li  class="current"><a href="category.html"><i class="fa fa-bars"></i><p>分类页</p></a></li>
+      <li><a href="cart.html"><i class="fa fa-shopping-cart"></i><p>购物车</p></a></li>
+      <li><a href="user.html"><i class="fa fa-user"></i><p>会员中心</p></a></li>
+    </ul>
+  </div>
+</div>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/mui/js/mui.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/category.js"></script>
+
+<script type="text/html" id="cateTpl">
+{{each rows v i}}
+<li data-id="{{v.id}}" class="{{ i === 0 ? 'active' : '' }}">
+  <a href="#">{{v.categoryName}}</a>
+</li>
+{{/each}}
+</script>
+
+<!--二级分类-->
+<script type="text/html" id="secateTpl">
+
+  {{if rows.length===0}}
+  <p class="nomore">没有更多的分类消息了</p>
+  {{/if}}
+  {{each rows v i}}
+  <li><a href="#"><img src="{{v.brandLogo}}" alt=""><p>{{v.brandName}}</p></a></li>
+  {{/each}}
+</script>
+</body>
+</html>

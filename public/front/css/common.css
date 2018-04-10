@@ -20,6 +20,7 @@ body,html{
   padding-bottom: 55px;
   overflow: hidden;
   /*box-sizing: border-box;*/
+  background-color: #fff;
 }
 
 .lt_content_head{
@@ -85,4 +86,12 @@ body,html{
 .lt_content_footer ul li p{
   color: #fff;
 
+}
+
+
+.lt_content_footer li.current a {
+  color: orange;
+}
+.lt_content_footer li.current p {
+  color: orange;
 }
