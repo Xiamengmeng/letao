@@ -26,7 +26,7 @@ $(function(){
     $.ajax({
       type:'get',
       url:'/category/querySecondCategory',
-      data:{id:id},
+      data:{id:id||1},
       dataType:'json',
       success:function(info){
         console.log(info);
