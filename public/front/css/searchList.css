@@ -12,3 +12,7 @@
   color: #666;
   font-size: 12px;
 }
+
+.lt_sort .current{
+  color: orange;
+}

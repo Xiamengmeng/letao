@@ -30,31 +30,25 @@
         </div>
         <div class="lt_sort">
           <a href="#">上架时间 <i class="fa fa-angle-down"></i></a>
-          <a href="#">价格 <i class="fa fa-angle-down"></i></a>
-          <a href="#">库存<i class="fa fa-angle-down"></i></a>
+          <a href="#" data-type="price" class="current">价格 <i class="fa fa-angle-down"></i></a>
+          <a href="#" data-type="num">库存<i class="fa fa-angle-down"></i></a>
           <a href="#">折扣<i class="fa fa-angle-down"></i></a>
         </div>
 
         <!--product-->
         <div class="product">
-          <ul class="mui-clearfix">
-            <li class="product_item">
-              <a href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
-                <p><span class="price">￥490</span><span class="old">￥560</span></p>
-                <button class="mui-btn mui-btn-primary">立即购买</button>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
-                <p><span class="price">￥490</span><span class="old">￥560</span></p>
-                <button class="mui-btn mui-btn-primary">立即购买</button>
-              </a>
-            </li>
-          </ul>
+
+          <!--<ul class="mui-clearfix ">-->
+            <!--<li class="product_item">-->
+              <!--<a href="#">-->
+                <!--<img src="images/product.jpg" alt="">-->
+                <!--<p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>-->
+                <!--<p><span class="price">￥490</span><span class="old">￥560</span></p>-->
+                <!--<button class="mui-btn mui-btn-primary">立即购买</button>-->
+              <!--</a>-->
+            <!--</li>-->
+
+          <!--</ul>-->
         </div>
 
 
@@ -77,8 +71,20 @@
 <script src="lib/mui/js/mui.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/"></script>
-
+<script src="js/searchList.js"></script>
+<script type="text/html" id="listTpl">
+{{each data v i}}
+<a href="product.html?productId={{ v.id }}" class="product_item">
+  <img src="{{ v.pic[0] ? v.pic[0].picAddr : 'images/none.png' }}" alt="">
+  <p class="mui-ellipsis-2">{{ v.proName }}</p>
+  <p>
+    <span class="price">¥{{ v.price }}</span>
+    <span class="old">¥{{ v.oldPrice }}</span>
+  </p>
+  <button class="mui-btn mui-btn-primary">立即购买</button>
+</a>
+  {{/each}}
+</script>
 
 </body>
 </html>
