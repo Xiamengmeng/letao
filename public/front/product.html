@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/product.css">
   <title>product</title>
 </head>
 <body>
 <div class="lt_container">
   <!--头部-->
   <div class="lt_content_head">
-    <a href="index.html" class="head_left"><i class="fa fa-home"></i></a>
-    <a href="search.html" class="head_right"><i class="fa fa-search"></i></a>
+    <a href="javascript:history.go(-1);" class="head_left"><i class="mui-icon mui-icon-back"></i></a>
+    <a href="javascript:location.reload();" class="head_right"><i class="mui-icon mui-icon-reload"></i></a>
     <h3>商品详情</h3>
   </div>
   <!--内容部分-->
@@ -25,27 +25,7 @@
     <div class="mui-scroll-wrapper">
       <div class="mui-scroll">
         <!--轮播图-->
-        <div class="mui-slider">
-          <div class="mui-slider-group mui-slider-loop">
-            <!--添加的假图片-->
-            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner6.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner1.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner2.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner3.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner4.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner5.png" /></a></div>
-            <div class="mui-slider-item"><a href="#"><img src="images/banner6.png" /></a></div>
-            <!--添加的假图片-->
-            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner1.png" /></a></div>
-          </div>
-
-          <div class="mui-slider-indicator">
-            <div class="mui-indicator mui-active"></div>
-            <div class="mui-indicator"></div>
-            <div class="mui-indicator"></div>
-            <div class="mui-indicator"></div>
-          </div>
-        </div>
+       <!--刨个坑-->
 
 
       </div>
@@ -54,18 +34,77 @@
   </div>
 
   <!--底部-->
-  <div class="lt_content_footer">
-    <ul class="mui-clearfix">
-      <li><a href="index.html"><i class="fa fa-home"></i><p>首页</p></a></li>
-      <li><a href="category.html"><i class="fa fa-bars"></i><p>分类页</p></a></li>
-      <li><a href="cart.html"><i class="fa fa-shopping-cart"></i><p>购物车</p></a></li>
-      <li><a href="user.html"><i class="fa fa-user"></i><p>会员中心</p></a></li>
-    </ul>
+  <div class="lt_go_cart">
+    <a href="cart.html" class="mui-pull-left">前往购物车</a>
+    <div class="mui-pull-right cart">
+      <button class="mui-btn mui-btn-warning">加入购物车</button>
+      <button class="mui-btn mui-btn-danger">立即购买</button>
+    </div>
   </div>
 </div>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/mui/js/mui.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="js/product.js"></script>
+<script type="text/html" id="lbTpl">
+
+  <div class="mui-slider">
+    <div class="mui-slider-group mui-slider-loop">
+
+      <!--添加的假图片-->
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner6.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner1.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner2.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner3.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner4.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner5.png" /></a></div>
+      <div class="mui-slider-item"><a href="#"><img src="images/banner6.png" /></a></div>
+      <!--添加的假图片-->
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner1.png" /></a></div>
+    </div>
+
+    <div class="mui-slider-indicator">
+      <div class="mui-indicator mui-active"></div>
+      <div class="mui-indicator"></div>
+      <div class="mui-indicator"></div>
+      <div class="mui-indicator"></div>
+    </div>
+  </div>
+  <div class="lt_pro_name itembox">
+    <strong>{{proName}}</strong>
+  </div>
+  <div class="lt_price itembox">
+    价格：
+    <span class="price">￥{{price}}</span>
+    <span class="old">￥{{oldPrice}}</span>
+  </div>
+  <div class="lt_size itembox">
+    尺码：
+    <span>35</span>
+    <span>41</span>
+    <span>42</span>
+    <span>43</span>
+    <span>44</span>
+    <span>45</span>
+    <span>46</span>
+    <span>47</span>
+    <span>48</span>
+    <span>49</span>
+    <span>50</span>
+  </div>
+  <div class="lt_num itembox">
+    数量:
+    <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{num}}'>
+      <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+      <input class="mui-numbox-input" type="number" value="1" />
+      <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+    </div>
+    <span>剩余数量：{{num}}双</span>
+  </div>
+  <div class="lt_desc itembox">
+    详情：{{proDesc}}
+  </div>
+</script>
 </body>
 </html>
