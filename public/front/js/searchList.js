@@ -10,7 +10,7 @@ render();
 
 // 功能2: 点击搜索按钮, 实现搜索功能
 $(".search_btn").click(function(){
-  console.log(666);
+  //console.log(666);
   render();
 // 获取搜索关键字
 
@@ -56,6 +56,8 @@ $("[data-type]").click(function(){
 
 
 function render(){
+//在请求渲染的时候，将product结构重置成loading
+  $(".product").html('<div class="loading"></div>');
 
 //将需要传入的参数放在一个对象中
 var params={};
@@ -63,7 +65,7 @@ params.proName=$(".search_input").val();
 params.page=1;
 params.pageSize=100;
 
-
+setTimeout(function(){
   $.ajax({
     type:'get',
     url:'/product/queryProduct',
@@ -73,4 +75,7 @@ params.pageSize=100;
       $(".product").html(template("listTpl",info));
     }
   })
+
+},500)
+
 }
