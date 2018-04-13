@@ -35,9 +35,9 @@
 
   <!--底部-->
   <div class="lt_go_cart">
-    <a href="cart.html" class="mui-pull-left">前往购物车</a>
+    <a href="cart.html" class="mui-pull-left btn_go_cart">前往购物车</a>
     <div class="mui-pull-right cart">
-      <button class="mui-btn mui-btn-warning">加入购物车</button>
+      <button class="mui-btn mui-btn-warning btn_add_cart">加入购物车</button>
       <button class="mui-btn mui-btn-danger">立即购买</button>
     </div>
   </div>
@@ -53,22 +53,18 @@
     <div class="mui-slider-group mui-slider-loop">
 
       <!--添加的假图片-->
-      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner6.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner1.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner2.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner3.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner4.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner5.png" /></a></div>
-      <div class="mui-slider-item"><a href="#"><img src="images/banner6.png" /></a></div>
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{pic[pic.length-1]}}"><img src="images/banner6.png" /></a></div>
+      {{each pic v i}}
+      <div class="mui-slider-item"><a href="#"><img src="{{v.picAddr}}" /></a></div>
+     {{/each}}
       <!--添加的假图片-->
-      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner1.png" /></a></div>
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{pic[0].picAddr}}"><img src="images/banner1.png" /></a></div>
     </div>
 
     <div class="mui-slider-indicator">
-      <div class="mui-indicator mui-active"></div>
-      <div class="mui-indicator"></div>
-      <div class="mui-indicator"></div>
-      <div class="mui-indicator"></div>
+      {{each pic v i}}
+      <div class="mui-indicator {{i===0?'mui-active':''}}"></div>
+      {{/each}}
     </div>
   </div>
   <div class="lt_pro_name itembox">
@@ -81,17 +77,13 @@
   </div>
   <div class="lt_size itembox">
     尺码：
-    <span>35</span>
-    <span>41</span>
-    <span>42</span>
-    <span>43</span>
-    <span>44</span>
-    <span>45</span>
-    <span>46</span>
-    <span>47</span>
-    <span>48</span>
-    <span>49</span>
-    <span>50</span>
+
+    <%
+    var temp=size.split("-");
+    for(var i=temp[0];i<=temp[1];i++){
+    %>
+    <span>{{i}}</span>
+    <% } %>
   </div>
   <div class="lt_num itembox">
     数量:

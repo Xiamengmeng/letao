@@ -3,6 +3,7 @@
  */
 //获取到key 中的数据，渲染页面
 var key =getSearch("key");
+console.log(key);
 $(".search_input").val(key);
 
 //功能1 一进入页面就渲染页面
@@ -10,7 +11,6 @@ render();
 
 // 功能2: 点击搜索按钮, 实现搜索功能
 $(".search_btn").click(function(){
-  //console.log(666);
   render();
 // 获取搜索关键字
 
@@ -58,12 +58,20 @@ $("[data-type]").click(function(){
 function render(){
 //在请求渲染的时候，将product结构重置成loading
   $(".product").html('<div class="loading"></div>');
-
 //将需要传入的参数放在一个对象中
 var params={};
-params.proName=$(".search_input").val();
+params.proName=$(".search_input").val().trim();
 params.page=1;
 params.pageSize=100;
+
+  //对于price和num， 如果价格被点了，需要发送price  如果库存被点了，需要发送num, 如果都没被点，都不发送
+  var $current = $(".lt_sort a.current");
+  if ($current.length > 0) {
+    //说明有一个被点击了，说明需要排序, 需要给param设置参数，可能是price，也可能是num,需要获取到$current这个元素是price或者type
+    var type = $current.data("type");//price num
+    var value = $current.find("i").hasClass("fa-angle-down") ? 2 : 1;
+    params[type] = value;
+  }
 
 setTimeout(function(){
   $.ajax({

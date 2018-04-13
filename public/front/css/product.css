@@ -25,6 +25,11 @@
   background-color: #F5F5F5;
   font-size: 14px;
 }
+
+.lt_size span.current{
+  background-color: #069;
+  color: #fff;
+}
 .lt_num span{
   font-size: 12px;
   color: #666;
@@ -39,4 +44,9 @@
 
 .cart{
   margin: 10px 10px 0 10px;
+}
+
+.lt_edit_size span.current{
+  background-color: #069;
+  color: #fff;
 }
