@@ -9,6 +9,8 @@ $(function(){
     success:function(info){
       console.log(info);
       $("#ul_left").html(template("cateTpl",info));
+      // 刚进页面默认渲染第一个
+      renderByid( info.rows[0].id );
     }
   });
 //  给左侧li添加委托事件
@@ -26,7 +28,7 @@ $(function(){
     $.ajax({
       type:'get',
       url:'/category/querySecondCategory',
-      data:{id:id||1},
+      data:{id:id},
       dataType:'json',
       success:function(info){
         console.log(info);
