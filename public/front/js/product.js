@@ -55,7 +55,9 @@ $(".btn_add_cart").click(function(){
     success:function(info){
       console.log(info);
       if(info.error==400){
-        location.href="login.html";
+        //如果添加失败，需要跳转至login页面登录，
+        // 为了使在登录页面登录之后仍能跳回该页面，需记录当前页面路径
+        location.href="login.html?retUrl="+location.href;
       }
       if(info.success){
         mui.confirm("添加成功","温馨提示",["去购物车","继续浏览"],function(e){
